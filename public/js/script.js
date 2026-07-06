@@ -120,24 +120,60 @@ STICKY NAVBAR EFFECT
 /*==============================
 BACK TO TOP BUTTON
 ==============================*/
+/*==============================
+TOP / BOTTOM BUTTON
+==============================*/
 
 const topBtn = document.getElementById("topBtn");
+const arrowIcon = topBtn.querySelector("i");
+
+let lastScrollY = window.scrollY;
+let scrollDirection = "down";
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 500) {
-        topBtn.style.display = "flex";
-    } else {
-        topBtn.style.display = "none";
+
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY) {
+
+        // Moving DOWN
+        arrowIcon.className = "fas fa-arrow-down";
+        scrollDirection = "down";
+
+    } else if (currentScrollY < lastScrollY) {
+
+        // Moving UP
+        arrowIcon.className = "fas fa-arrow-up";
+        scrollDirection = "up";
+
     }
+
+    lastScrollY = currentScrollY;
+
 });
+
 
 topBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
 
+    if (scrollDirection === "down") {
+
+        // Go to bottom
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: "smooth"
+        });
+
+    } else {
+
+        // Go to top
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+});
 
 /*==============================
 SMOOTH NAVIGATION
@@ -211,7 +247,7 @@ window.addEventListener("scroll", () => {
 BUTTON RIPPLE EFFECT
 ==============================*/
 
-document.querySelectorAll(".btn").forEach(button => {
+document.querySelectorAll(".btn:not(#topBtn)").forEach(button => {
 
     button.addEventListener("click", function (e) {
 
