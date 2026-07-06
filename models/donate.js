@@ -4,15 +4,19 @@ const Schema = mongoose.Schema;
 const donateSchema = new Schema({
     quantity: {
         type: String,
+        required: true,
     },
     pickupTime: {
         type: String,
+        required: true,
     },
     foodType: {
         type: String,
+        required: true,
     },
     location: {
         type: String,
+        required: true,
     }
 })
 

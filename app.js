@@ -5,10 +5,21 @@ import AdminLogin from "./models/user/admin.js";
 import { fileURLToPath } from "url";
 import ejsMate from "ejs-mate";
 import mongoose from "mongoose";
+import ExpressError from "./utils/ExpressError.js";
+import donateSchema from "./schema.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
+const validateDonate = (req, res, next) => {
+    let {error} = donateSchema.validate(req.body);
+    if (error) {
+        let errMsg = error.details.map((el) => el.message).join(",");
+        throw new ExpressError(400, errMsg);
+    } else {
+        next();
+    }
+}
 
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/annam";
@@ -56,7 +67,7 @@ app.post("/register/admin", async (req, res) => {
     res.redirect("/");
 })
 
-app.post("/donate", async (req, res) => {
+app.post("/donate", validateDonate, async (req, res) => {
     const donateData = new Donate(req.body.donate);
     await donateData.save();
     console.log("Donation Added");

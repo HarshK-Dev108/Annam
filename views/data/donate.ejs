@@ -20,8 +20,11 @@
                     <div class="invalid-feedback">Time is required!</div>
                 </div>
                 <div class="mb-3">
-                    <label for="foodType" class="form-label">Title:</label>
-                    <input type="text" name="donate[foodType]" class="form-control" placeholder="Veg/Non-veg" required>
+                    <label for="foodType" class="form-label">Food Type:</label>
+                    <select name="donate[foodType]" id="" class="form-control" required>
+                        <option value="veg">Veg</option>
+                        <option value="non-veg">Non-Veg</option>
+                    </select>
                     <div class="valid-feedback">Looks Good!</div>
                     <div class="invalid-feedback">Type is must!</div>
                 </div>
