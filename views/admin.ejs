@@ -1,0 +1,1146 @@
+<%- layout('layouts/boilerplate') %>
+
+<div class="admin-dashboard">
+
+    <!-- ==========================
+         ADMIN SIDEBAR
+    =========================== -->
+
+    <aside class="admin-sidebar">
+
+        <div class="admin-logo">
+
+            <i class="fas fa-hand-holding-heart"></i>
+
+            <span>Food Admin</span>
+
+        </div>
+
+
+        <nav class="admin-menu">
+
+            <a href="#dashboard" class="active">
+
+                <i class="fas fa-chart-pie"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="#ngos">
+
+                <i class="fas fa-building-ngo"></i>
+
+                NGOs
+
+            </a>
+
+
+            <a href="#donations">
+
+                <i class="fas fa-box"></i>
+
+                Donations
+
+            </a>
+
+
+            <a href="#volunteers">
+
+                <i class="fas fa-users"></i>
+
+                Volunteers
+
+            </a>
+
+
+            <a href="#ai-monitoring">
+
+                <i class="fas fa-robot"></i>
+
+                AI Monitoring
+
+            </a>
+
+
+            <a href="#verification">
+
+                <i class="fas fa-qrcode"></i>
+
+                QR Verification
+
+            </a>
+
+
+            <a href="#reports">
+
+                <i class="fas fa-chart-line"></i>
+
+                Reports
+
+            </a>
+
+
+            <a href="/">
+
+                <i class="fas fa-house"></i>
+
+                Website
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- ==========================
+         MAIN CONTENT
+    =========================== -->
+
+    <main class="admin-main">
+
+
+        <!-- ADMIN NAVBAR -->
+
+        <div class="admin-navbar">
+
+            <div>
+
+                <h3>Admin Dashboard</h3>
+
+                <p>
+                    Food Donation Platform Management System
+                </p>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+                <div class="notification-icon">
+
+                    <i class="fas fa-bell"></i>
+
+                    <span>4</span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>Administrator</strong>
+
+                    <small>Super Admin</small>
+
+                </div>
+
+
+                <div class="admin-avatar">
+
+                    <i class="fas fa-user-shield"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================
+             DASHBOARD STATS
+        =========================== -->
+
+        <section id="dashboard">
+
+            <div class="row g-4">
+
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="admin-stat-card">
+
+                        <div>
+
+                            <p>Total Donations</p>
+
+                            <h2>2,845</h2>
+
+                            <small class="text-success">
+
+                                <i class="fas fa-arrow-up"></i>
+
+                                12% this month
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="admin-stat-icon bg-success">
+
+                            <i class="fas fa-hand-holding-heart"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="admin-stat-card">
+
+                        <div>
+
+                            <p>Registered NGOs</p>
+
+                            <h2>350</h2>
+
+                            <small class="text-success">
+
+                                18 new NGOs
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="admin-stat-icon bg-primary">
+
+                            <i class="fas fa-building-ngo"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="admin-stat-card">
+
+                        <div>
+
+                            <p>Active Volunteers</p>
+
+                            <h2>1,200</h2>
+
+                            <small class="text-success">
+
+                                94% Active
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="admin-stat-icon bg-warning">
+
+                            <i class="fas fa-users"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="admin-stat-card">
+
+                        <div>
+
+                            <p>Meals Distributed</p>
+
+                            <h2>15,420</h2>
+
+                            <small class="text-success">
+
+                                1,240 this week
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="admin-stat-icon bg-danger">
+
+                            <i class="fas fa-bowl-food"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================
+             NGO MANAGEMENT
+        =========================== -->
+
+        <section id="ngos" class="admin-section">
+
+            <div class="admin-section-header">
+
+                <div>
+
+                    <h3>NGO Management</h3>
+
+                    <p>
+                        Manage registered NGO organizations.
+                    </p>
+
+                </div>
+
+
+                <button class="btn btn-success">
+
+                    <i class="fas fa-plus"></i>
+
+                    Add NGO
+
+                </button>
+
+            </div>
+
+
+
+            <div class="admin-card">
+
+                <div class="table-responsive">
+
+                    <table class="table align-middle admin-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>NGO</th>
+
+                                <th>Location</th>
+
+                                <th>Food Received</th>
+
+                                <th>Volunteers</th>
+
+                                <th>Status</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="ngo-name">
+
+                                        <div class="ngo-icon">
+
+                                            <i class="fas fa-building-ngo"></i>
+
+                                        </div>
+
+                                        <div>
+
+                                            <strong>Helping Hands Foundation</strong>
+
+                                            <small>NGO-10021</small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>Jalandhar</td>
+
+                                <td>1,420 Meals</td>
+
+                                <td>84</td>
+
+                                <td>
+
+                                    <span class="badge bg-success">
+
+                                        Verified
+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button class="btn btn-sm btn-outline-primary">
+
+                                        <i class="fas fa-eye"></i>
+
+                                    </button>
+
+
+                                    <button class="btn btn-sm btn-outline-success">
+
+                                        <i class="fas fa-pen"></i>
+
+                                    </button>
+
+
+                                    <button class="btn btn-sm btn-outline-danger">
+
+                                        <i class="fas fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="ngo-name">
+
+                                        <div class="ngo-icon">
+
+                                            <i class="fas fa-building-ngo"></i>
+
+                                        </div>
+
+                                        <div>
+
+                                            <strong>Food For Everyone</strong>
+
+                                            <small>NGO-10022</small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>Ludhiana</td>
+
+                                <td>980 Meals</td>
+
+                                <td>62</td>
+
+
+                                <td>
+
+                                    <span class="badge bg-warning text-dark">
+
+                                        Pending
+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button class="btn btn-sm btn-outline-primary">
+
+                                        <i class="fas fa-eye"></i>
+
+                                    </button>
+
+
+                                    <button class="btn btn-sm btn-outline-success">
+
+                                        <i class="fas fa-check"></i>
+
+                                    </button>
+
+
+                                    <button class="btn btn-sm btn-outline-danger">
+
+                                        <i class="fas fa-xmark"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="ngo-name">
+
+                                        <div class="ngo-icon">
+
+                                            <i class="fas fa-building-ngo"></i>
+
+                                        </div>
+
+                                        <div>
+
+                                            <strong>Hope India Trust</strong>
+
+                                            <small>NGO-10023</small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>Phagwara</td>
+
+                                <td>2,150 Meals</td>
+
+                                <td>108</td>
+
+
+                                <td>
+
+                                    <span class="badge bg-success">
+
+                                        Verified
+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <button class="btn btn-sm btn-outline-primary">
+
+                                        <i class="fas fa-eye"></i>
+
+                                    </button>
+
+
+                                    <button class="btn btn-sm btn-outline-success">
+
+                                        <i class="fas fa-pen"></i>
+
+                                    </button>
+
+
+                                    <button class="btn btn-sm btn-outline-danger">
+
+                                        <i class="fas fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================
+             ADMIN INFORMATION CARDS
+        =========================== -->
+
+        <div class="row g-4">
+
+
+            <!-- RECENT DONATIONS -->
+
+
+            <div class="col-xl-8">
+
+                <section id="donations" class="admin-section">
+
+                    <div class="admin-section-header">
+
+                        <div>
+
+                            <h3>Recent Donations</h3>
+
+                            <p>
+                                Latest food donation activity.
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-outline-success">
+
+                            View All
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="admin-card">
+
+                        <div class="table-responsive">
+
+                            <table class="table align-middle admin-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Donation ID</th>
+
+                                        <th>Donor</th>
+
+                                        <th>Food</th>
+
+                                        <th>Quantity</th>
+
+                                        <th>Status</th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+
+                                    <tr>
+
+                                        <td>#FD2045</td>
+
+                                        <td>Green Palace Hotel</td>
+
+                                        <td>Vegetable Biryani</td>
+
+                                        <td>120 Meals</td>
+
+                                        <td>
+
+                                            <span class="badge bg-success">
+
+                                                Delivered
+
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+
+                                        <td>#FD2046</td>
+
+                                        <td>Royal Restaurant</td>
+
+                                        <td>Rice & Curry</td>
+
+                                        <td>85 Meals</td>
+
+                                        <td>
+
+                                            <span class="badge bg-primary">
+
+                                                Picked Up
+
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+
+                                        <td>#FD2047</td>
+
+                                        <td>University Hostel</td>
+
+                                        <td>Chapati & Vegetables</td>
+
+                                        <td>200 Meals</td>
+
+                                        <td>
+
+                                            <span class="badge bg-warning text-dark">
+
+                                                Waiting
+
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+
+            <!-- PLATFORM STATUS -->
+
+
+            <div class="col-xl-4">
+
+                <section class="admin-section">
+
+                    <div class="admin-section-header">
+
+                        <div>
+
+                            <h3>Platform Status</h3>
+
+                            <p>Live platform overview.</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="admin-card platform-status">
+
+
+                        <div class="status-item">
+
+                            <span>
+
+                                <i class="fas fa-circle-check text-success"></i>
+
+                                Server Status
+
+                            </span>
+
+                            <strong class="text-success">
+
+                                Online
+
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-item">
+
+                            <span>
+
+                                <i class="fas fa-robot text-success"></i>
+
+                                AI Freshness System
+
+                            </span>
+
+                            <strong>
+
+                                Operational
+
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-item">
+
+                            <span>
+
+                                <i class="fas fa-qrcode text-success"></i>
+
+                                QR Verification
+
+                            </span>
+
+                            <strong>
+
+                                Operational
+
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-item">
+
+                            <span>
+
+                                <i class="fas fa-truck text-warning"></i>
+
+                                Pending Pickups
+
+                            </span>
+
+                            <strong>
+
+                                24
+
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==========================
+             AI MONITORING
+        =========================== -->
+
+
+        <section id="ai-monitoring" class="admin-section">
+
+            <div class="admin-section-header">
+
+                <div>
+
+                    <h3>AI Monitoring Center</h3>
+
+                    <p>
+                        Food safety analysis and demand predictions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="row g-4">
+
+
+                <div class="col-lg-4">
+
+                    <div class="admin-card ai-admin-card">
+
+                        <div class="ai-admin-icon bg-success">
+
+                            <i class="fas fa-leaf"></i>
+
+                        </div>
+
+
+                        <h4>Food Safety</h4>
+
+                        <h2>94.8%</h2>
+
+                        <p>
+                            Donations marked safe for distribution.
+                        </p>
+
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar bg-success"
+                                style="width:94.8%">
+
+                                94.8%
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4">
+
+                    <div class="admin-card ai-admin-card">
+
+                        <div class="ai-admin-icon bg-danger">
+
+                            <i class="fas fa-triangle-exclamation"></i>
+
+                        </div>
+
+
+                        <h4>High Demand Areas</h4>
+
+                        <h2>12</h2>
+
+                        <p>
+                            Locations requiring urgent food donations.
+                        </p>
+
+
+                        <button class="btn btn-outline-danger w-100">
+
+                            View Demand Map
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4">
+
+                    <div class="admin-card ai-admin-card">
+
+                        <div class="ai-admin-icon bg-primary">
+
+                            <i class="fas fa-brain"></i>
+
+                        </div>
+
+
+                        <h4>AI Predictions</h4>
+
+                        <h2>1,824</h2>
+
+                        <p>
+                            Predictions processed during this month.
+                        </p>
+
+
+                        <button class="btn btn-outline-primary w-100">
+
+                            AI Analytics
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================
+             VOLUNTEER ACTIVITY
+        =========================== -->
+
+
+        <section id="volunteers" class="admin-section">
+
+            <div class="admin-section-header">
+
+                <div>
+
+                    <h3>Volunteer Activity</h3>
+
+                    <p>
+                        Monitor volunteer delivery performance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-card">
+
+                <div class="row text-center g-4">
+
+
+                    <div class="col-md-3">
+
+                        <div class="admin-impact">
+
+                            <i class="fas fa-users text-success"></i>
+
+                            <h3>1,200</h3>
+
+                            <p>Total Volunteers</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <div class="admin-impact">
+
+                            <i class="fas fa-user-check text-primary"></i>
+
+                            <h3>875</h3>
+
+                            <p>Active Today</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <div class="admin-impact">
+
+                            <i class="fas fa-truck-fast text-warning"></i>
+
+                            <h3>184</h3>
+
+                            <p>Deliveries Today</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <div class="admin-impact">
+
+                            <i class="fas fa-clock text-danger"></i>
+
+                            <h3>24</h3>
+
+                            <p>Pending Deliveries</p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================
+             QR VERIFICATION
+        =========================== -->
+
+
+        <section id="verification" class="admin-section">
+
+            <div class="admin-section-header">
+
+                <div>
+
+                    <h3>QR Verification Activity</h3>
+
+                    <p>
+                        Monitor donation pickup and delivery verification.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-card">
+
+
+                <div class="row text-center g-4">
+
+
+                    <div class="col-md-4">
+
+                        <div class="verification-stat">
+
+                            <i class="fas fa-qrcode text-success"></i>
+
+                            <h3>2,845</h3>
+
+                            <p>QR Codes Generated</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <div class="verification-stat">
+
+                            <i class="fas fa-mobile-screen text-primary"></i>
+
+                            <h3>2,621</h3>
+
+                            <p>Successfully Verified</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <div class="verification-stat">
+
+                            <i class="fas fa-clock text-warning"></i>
+
+                            <h3>224</h3>
+
+                            <p>Pending Verification</p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>

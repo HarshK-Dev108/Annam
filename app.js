@@ -30,3 +30,10 @@ app.get("/signup", (req, res) => {
 app.listen(3000, () => {
     console.log("Website is live at 3000!");
 });
+// ADMIN PAGE
+// ADD THIS CODE
+app.get("/admin", (req, res) => {
+
+    res.render("admin");
+
+});

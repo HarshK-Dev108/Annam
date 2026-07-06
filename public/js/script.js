@@ -138,8 +138,7 @@ window.addEventListener("scroll", () => {
 
         // Moving DOWN
         arrowIcon.className = "fas fa-arrow-down";
-        scrollDirection = "down";
-
+        scrollDirection = "down"; 
     } else if (currentScrollY < lastScrollY) {
 
         // Moving UP
@@ -202,6 +201,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 
 });
+
 
 
 /*==============================
