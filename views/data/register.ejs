@@ -1,13 +1,92 @@
 <%- layout('layouts/boilerplate') %>
 
-    <h1>Register As?</h1>
+<section class="role-register-section">
+    <div class="container">
 
-    <form action="/register/admin" method="GET">
-        <button>Admin</button>
-    </form>
-    <form action="/register/donor" method="GET">
-        <button>Donor</button>
-    </form>
-    <form action="/register/volunteer" method="GET">
-        <button>Volunteer</button>
-    </form>
+        <div class="role-register-heading text-center">
+            <span class="role-small-title">JOIN ANNAM</span>
+
+            <h1>Register As?</h1>
+
+            <p>
+                Choose your role and become a part of our food donation community.
+            </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            <div class="col-lg-4 col-md-6">
+                <div class="role-register-card">
+
+                    <div class="role-register-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+
+                    <h3>NGO</h3>
+
+                    <p>
+                        Register your organization to manage food donations
+                        and support communities in need.
+                    </p>
+
+                    <form action="/register/admin" method="GET">
+                        <button type="submit" class="role-register-btn">
+                            Register as NGO
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="role-register-card">
+
+                    <div class="role-register-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+
+                    <h3>Donor</h3>
+
+                    <p>
+                        Donate surplus food and help provide meals
+                        to people and communities who need them.
+                    </p>
+
+                    <form action="/register/donor" method="GET">
+                        <button type="submit" class="role-register-btn">
+                            Register as Donor
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="role-register-card">
+
+                    <div class="role-register-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+
+                    <h3>Volunteer</h3>
+
+                    <p>
+                        Join our volunteer network and help collect,
+                        transport and distribute donated food.
+                    </p>
+
+                    <form action="/register/volunteer" method="GET">
+                        <button type="submit" class="role-register-btn">
+                            Register as Volunteer
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
