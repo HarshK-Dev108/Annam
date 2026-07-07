@@ -88,10 +88,18 @@ app.get("/register/admin", (req, res) => {
 })
 
 app.post("/register/admin", async (req, res) => {
-    const admin = new AdminLogin(req.body.admin);
-    await admin.save();
-    console.log("Admin Added");
-    res.redirect("/");
+    const { username, password, ngoName, location } = req.body;
+
+const admin = new AdminLogin({
+    username,
+    ngoName,
+    location,
+});
+
+await AdminLogin.register(admin, password);
+
+console.log("Admin Added");
+res.redirect("/");
 })
 
 app.post("/donate", validateDonate, async (req, res) => {
