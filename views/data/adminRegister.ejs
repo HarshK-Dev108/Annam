@@ -6,11 +6,11 @@
             <h3>Register as new Admin</h3>
             <form action="/register/admin" method="POST" novalidate class="needs-validation">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name:</label>
-                    <input type="text" name="admin[name]" class="form-control" placeholder="Add your name here"
+                    <label for="name" class="form-label">Username:</label>
+                    <input type="text" name="admin[name]" class="form-control" placeholder="Add your username here"
                         required>
                     <div class="valid-feedback">Looks Good!</div>
-                    <div class="invalid-feedback">Enter the name!</div>
+                    <div class="invalid-feedback">Enter the username!</div>
                 </div>
                 <div class="mb-3">
                     <label for="ngoName" class="form-label">NGO Name:</label>
@@ -25,6 +25,13 @@
                         required>
                     <div class="valid-feedback">Looks Good!</div>
                     <div class="invalid-feedback">Location is must!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" name="password" class="form-control" placeholder="Add your password"
+                        required>
+                    <div class="valid-feedback">Looks Good!</div>
+                    <div class="invalid-feedback">Password is must!</div>
                 </div>
                 <br>
                 <button class="btn btn-dark add-btn">Register</button>

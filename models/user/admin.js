@@ -1,8 +1,13 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
+import pkg from "passport-local-mongoose";
+
+console.log(pkg);
+console.log(typeof pkg);
+console.log(typeof pkg.default);
 
 const adminSchema = new Schema({
-    name: {
+    username: {
         type: String,
     },
     ngoName: {
@@ -13,5 +18,6 @@ const adminSchema = new Schema({
     },
 })
 
+adminSchema.plugin(pkg.default ?? pkg);
 const Admin = mongoose.model("Admin", adminSchema);
 export default Admin;
