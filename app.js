@@ -57,7 +57,7 @@ app.get("/register", (req, res) => {
 });
 
 app.get("/register/admin", (req, res) => {
-    res.render("./data/adminLogin.ejs");
+    res.render("./data/adminRegister.ejs");
 })
 
 app.post("/register/admin", async (req, res) => {
