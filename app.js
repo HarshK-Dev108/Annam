@@ -10,6 +10,7 @@ import donateSchema from "./schema.js";
 import sessions from "express-session";
 import passport from "passport";
 import passportLocal from "passport-local";
+import flash from "connect-flash";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -92,7 +93,6 @@ app.use(
 );
 
 app.use(sessions(sessionOptions));
-
 app.use(passport.initialize());
 
 app.use(passport.session());
@@ -110,6 +110,17 @@ passport.serializeUser(
 passport.deserializeUser(
     AdminLogin.deserializeUser()
 );
+
+app.use(flash());
+app.use((req, res, next) => {
+    const success = req.flash("success");
+    const error = req.flash("error");
+    res.locals.success = success;
+    res.locals.error = error;
+    res.locals.currUser = req.user;
+
+    next();
+});
 
 
 /* ================================
@@ -182,19 +193,33 @@ app.post("/register/admin", async (req, res, next) => {
         await AdminLogin.register(admin, password);
 
         console.log("Admin Added");
-        res.redirect("/");
+        req.flash("success", "Admin registered successfully!");
+        return res.redirect("/");
     } catch (err) {
         if (err.name === "UserExistsError") {
-            return res.status(400).send("Username already exists.");
+            req.flash("error", "Admin already registered!");
+            return res.redirect("/register/admin");
         }
 
-        next(err);
+        return next(err);
     }
 });
 
 app.get("/login", async (req, res) => {
     res.render("./data/login.ejs");
-})
+});
+
+app.post("/login",
+    passport.authenticate("local", {
+        failureRedirect: "/login",
+        failureFlash: true,
+    }),
+    async (req, res) => {
+    const {username} = req.body;
+    req.flash("success", `Welcome back ${username}!`);
+    return res.redirect("/");
+    }
+);
 
 app.post("/donate", validateDonate, async (req, res) => {
     const donateData = new Donate(req.body.donate);
