@@ -228,6 +228,17 @@ app.post("/donate", validateDonate, async (req, res) => {
     res.redirect("/");
 })
 
+app.get("/logout", (req, res, next) => {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        req.flash("success", "You are successfully logged out!");
+        res.redirect("/");
+    }
+)}
+)
+
 app.get("/admin", (req, res) => {
     res.render("./data/admin");
 });
