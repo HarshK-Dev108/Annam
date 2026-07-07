@@ -87,7 +87,7 @@ const arrowIcon = topBtn.querySelector("i");
 
 window.addEventListener("scroll", () => {
     const currentScrollY = window.scrollY;
-    if (currentScrollY > 1000) {
+    if (currentScrollY > 200) {
         topBtn.classList.remove("d-none");
     }  else {
         topBtn.classList.add("d-none");
