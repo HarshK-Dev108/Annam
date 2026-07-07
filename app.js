@@ -16,11 +16,6 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-
-/* ================================
-   DONATION VALIDATION
-================================ */
-
 const validateDonate = (req, res, next) => {
     const { error } = donateSchema.validate(req.body);
 
@@ -35,11 +30,6 @@ const validateDonate = (req, res, next) => {
     next();
 };
 
-
-/* ================================
-   SESSION CONFIGURATION
-================================ */
-
 const sessionOptions = {
     secret: "mysupersecretcode",
     resave: false,
@@ -51,11 +41,6 @@ const sessionOptions = {
         maxAge: 7 * 24 * 60 * 60 * 1000,
     },
 };
-
-
-/* ================================
-   DATABASE CONNECTION
-================================ */
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/annam";
 
@@ -71,11 +56,6 @@ main()
         console.log(err);
     });
 
-
-/* ================================
-   APP CONFIGURATION
-================================ */
-
 app.set("view engine", "ejs");
 
 app.set(
@@ -84,11 +64,6 @@ app.set(
 );
 
 app.engine("ejs", ejsMate);
-
-
-/* ================================
-   MIDDLEWARE
-================================ */
 
 app.use(
     express.static(
@@ -115,13 +90,6 @@ app.use(
         )
     )
 );
-
-
-/* ================================
-   SESSION + PASSPORT
-================================ */
-
-// Session middleware MUST come before passport.session()
 
 app.use(sessions(sessionOptions));
 
@@ -197,31 +165,35 @@ app.get("/register", (req, res) => {
 ================================ */
 
 app.get("/register/admin", (req, res) => {
-    res.render("data/adminRegister");
+    res.render("./data/adminRegister");
 });
 
 
-app.post(
-    "/register/admin",
-    async (req, res, next) => {
-        try {
-            const {
-                username,
-                password,
-                ngoName,
-                location,
-            } = req.body;
+app.post("/register/admin", async (req, res, next) => {
+    try {
+        const { username, password, ngoName, location } = req.body;
 
-const admin = new AdminLogin({
-    username,
-    ngoName,
-    location,
+        const admin = new AdminLogin({
+            username,
+            ngoName,
+            location,
+        });
+
+        await AdminLogin.register(admin, password);
+
+        console.log("Admin Added");
+        res.redirect("/");
+    } catch (err) {
+        if (err.name === "UserExistsError") {
+            return res.status(400).send("Username already exists.");
+        }
+
+        next(err);
+    }
 });
 
-await AdminLogin.register(admin, password);
-
-console.log("Admin Added");
-res.redirect("/");
+app.get("/login", async (req, res) => {
+    res.render("./data/login.ejs");
 })
 
 app.post("/donate", validateDonate, async (req, res) => {
@@ -231,23 +203,10 @@ app.post("/donate", validateDonate, async (req, res) => {
     res.redirect("/");
 })
 
-app.listen(3000, () => {
-    console.log("Website is live at 3000!");
-});
-
-
-/* ================================
-   ADMIN DASHBOARD
-================================ */
-
 app.get("/admin", (req, res) => {
-    res.render("data/admin");
+    res.render("./data/admin");
 });
 
-
-/* ================================
-   404 HANDLER
-================================ */
 
 app.all("/{*splat}", (req, res, next) => {
     next(
@@ -272,13 +231,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).send(message);
 });
 
-
-/* ================================
-   START SERVER
-================================ */
-
 app.listen(3000, () => {
-    console.log(
-        "Website is live at http://localhost:3000"
-    );
+    console.log("Website is live at 3000!");
 });
