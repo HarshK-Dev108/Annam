@@ -12,6 +12,14 @@ const adminSchema = new Schema({
     location: {
         type: String,
     },
+    volunteers: [{
+        type: Schema.Types.ObjectId,
+        ref: "Volunteer",
+    }],
+    meals_distributed: [{
+        type: Schema.Types.ObjectId,
+        ref: "Product",
+    }]
 })
 
 adminSchema.plugin(pkg.default ?? pkg);

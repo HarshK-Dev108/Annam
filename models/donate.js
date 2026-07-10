@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const donateSchema = new Schema({
+    name: {
+        type: String,
+    },
     quantity: {
         type: String,
         required: true,
@@ -17,7 +20,7 @@ const donateSchema = new Schema({
     location: {
         type: String,
         required: true,
-    }
+    },
 })
 
 const Donate = mongoose.model("Donate", donateSchema);

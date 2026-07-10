@@ -1,230 +1,226 @@
 <%- layout('layouts/boilerplate') %>
 
-<section class="donation-form-section">
-    <div class="container">
+    <section class="donation-form-section">
+        <div class="container">
 
-        <div class="donation-form-wrapper">
+            <div class="donation-form-wrapper">
 
-            <!-- LEFT SIDE -->
-            <div class="donation-form-info">
+                <!-- LEFT SIDE -->
+                <div class="donation-form-info">
 
-                <div class="donation-info-icon">
-                    <i class="fas fa-hand-holding-heart"></i>
-                </div>
+                    <div class="donation-info-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
 
-                <h2>Share Food, Spread Hope</h2>
+                    <h2>Share Food, Spread Hope</h2>
 
-                <p>
-                    Register your surplus food donation and help us connect
-                    it with NGOs and communities that need it most.
-                </p>
+                    <p>
+                        Register your surplus food donation and help us connect
+                        it with NGOs and communities that need it most.
+                    </p>
 
-                <div class="donation-info-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Quick donation registration</span>
-                </div>
+                    <div class="donation-info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Quick donation registration</span>
+                    </div>
 
-                <div class="donation-info-item">
-                    <i class="fas fa-truck"></i>
-                    <span>Easy pickup coordination</span>
-                </div>
+                    <div class="donation-info-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Easy pickup coordination</span>
+                    </div>
 
-                <div class="donation-info-item">
-                    <i class="fas fa-users"></i>
-                    <span>Support communities in need</span>
-                </div>
-
-            </div>
-
-
-            <!-- RIGHT SIDE -->
-            <div class="donation-form-card">
-
-                <div class="donation-form-heading">
-
-                    <span class="donation-small-title">
-                        MAKE A DIFFERENCE
-                    </span>
-
-                    <h2>Register a Donation</h2>
-
-                    <p>Enter the food donation details below.</p>
+                    <div class="donation-info-item">
+                        <i class="fas fa-users"></i>
+                        <span>Support communities in need</span>
+                    </div>
 
                 </div>
 
 
-                <form action="/donate"
-                      method="POST"
-                      novalidate
-                      class="needs-validation">
+                <!-- RIGHT SIDE -->
+                <div class="donation-form-card">
 
+                    <div class="donation-form-heading">
 
-                    <!-- QUANTITY -->
+                        <span class="donation-small-title">
+                            MAKE A DIFFERENCE
+                        </span>
 
-                    <div class="donation-input-group">
+                        <h2>Register a Donation</h2>
 
-                        <label for="quantity">
-                            <i class="fas fa-box-open"></i>
-                            Food & Quantity
-                        </label>
-
-                        <input
-                            id="quantity"
-                            type="text"
-                            name="donate[quantity]"
-                            class="form-control"
-                            placeholder="Example: 50 packed meals"
-                            required>
-
-                        <div class="valid-feedback">
-                            Looks Good!
-                        </div>
-
-                        <div class="invalid-feedback">
-                            Enter the food and quantity!
-                        </div>
+                        <p>Enter the food donation details below.</p>
 
                     </div>
 
 
-                    <!-- PICKUP TIME -->
+                    <form action="/donate" method="POST" novalidate class="needs-validation">
 
-                    <div class="donation-input-group">
+                        <div class="donation-input-group">
 
-                        <label for="pickupTime">
-                            <i class="fas fa-clock"></i>
-                            Pickup Time
-                        </label>
+                            <label for="name">
+                                <i class="fas fa-box-open"></i>
+                                Enter your name
+                            </label>
 
-                        <input
-                            id="pickupTime"
-                            type="time"
-                            name="donate[pickupTime]"
-                            class="form-control"
-                            required>
+                            <input id="quantity" type="text" name="donate[name]" class="form-control"
+                                placeholder="Example: 50 packed meals" required>
 
-                        <div class="valid-feedback">
-                            Looks Good!
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+
+                            <div class="invalid-feedback">
+                                Enter the name!
+                            </div>
+
                         </div>
 
-                        <div class="invalid-feedback">
-                            Pickup time is required!
+
+                        <!-- QUANTITY -->
+
+                        <div class="donation-input-group">
+
+                            <label for="quantity">
+                                <i class="fas fa-box-open"></i>
+                                Food & Quantity
+                            </label>
+
+                            <input id="quantity" type="text" name="donate[quantity]" class="form-control"
+                                placeholder="Example: 50 packed meals" required>
+
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+
+                            <div class="invalid-feedback">
+                                Enter the food and quantity!
+                            </div>
+
                         </div>
 
-                    </div>
 
+                        <!-- PICKUP TIME -->
 
-                    <!-- FOOD TYPE -->
+                        <div class="donation-input-group">
 
-                    <div class="donation-input-group">
+                            <label for="pickupTime">
+                                <i class="fas fa-clock"></i>
+                                Pickup Time
+                            </label>
 
-                        <label for="foodType">
-                            <i class="fas fa-utensils"></i>
-                            Food Type
-                        </label>
+                            <input id="pickupTime" type="time" name="donate[pickupTime]" class="form-control" required>
 
-                        <select
-                            id="foodType"
-                            name="donate[foodType]"
-                            class="form-select"
-                            required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
 
-                            <option value="" selected disabled>
-                                Select food type
-                            </option>
+                            <div class="invalid-feedback">
+                                Pickup time is required!
+                            </div>
 
-                            <option value="veg">Vegetarian</option>
-
-                            <option value="non-veg">Non-Vegetarian</option>
-
-                        </select>
-
-                        <div class="valid-feedback">
-                            Looks Good!
                         </div>
 
-                        <div class="invalid-feedback">
-                            Select the food type!
+
+                        <!-- FOOD TYPE -->
+
+                        <div class="donation-input-group">
+
+                            <label for="foodType">
+                                <i class="fas fa-utensils"></i>
+                                Food Type
+                            </label>
+
+                            <select id="foodType" name="donate[foodType]" class="form-select" required>
+
+                                <option value="" selected disabled>
+                                    Select food type
+                                </option>
+
+                                <option value="veg">Vegetarian</option>
+
+                                <option value="non-veg">Non-Vegetarian</option>
+
+                            </select>
+
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+
+                            <div class="invalid-feedback">
+                                Select the food type!
+                            </div>
+
                         </div>
 
-                    </div>
 
+                        <!-- LOCATION -->
 
-                    <!-- LOCATION -->
+                        <div class="donation-input-group">
 
-                    <div class="donation-input-group">
+                            <label for="location">
+                                <i class="fas fa-location-dot"></i>
+                                Pickup Location
+                            </label>
 
-                        <label for="location">
-                            <i class="fas fa-location-dot"></i>
-                            Pickup Location
-                        </label>
+                            <input id="location" type="text" name="donate[location]" class="form-control"
+                                placeholder="Enter pickup location" required>
 
-                        <input
-                            id="location"
-                            type="text"
-                            name="donate[location]"
-                            class="form-control"
-                            placeholder="Enter pickup location"
-                            required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
 
-                        <div class="valid-feedback">
-                            Looks Good!
+                            <div class="invalid-feedback">
+                                Enter the pickup location!
+                            </div>
+
                         </div>
 
-                        <div class="invalid-feedback">
-                            Enter the pickup location!
-                        </div>
 
-                    </div>
+                        <button type="submit" class="donation-submit-btn">
 
+                            <i class="fas fa-heart"></i>
 
-                    <button
-                        type="submit"
-                        class="donation-submit-btn">
+                            Register Donation
 
-                        <i class="fas fa-heart"></i>
+                        </button>
 
-                        Register Donation
+                    </form>
 
-                    </button>
-
-                </form>
+                </div>
 
             </div>
 
         </div>
-
-    </div>
-</section>
+    </section>
 
 
-<script>
+    <script>
 
-(function () {
+        (function () {
 
-    'use strict';
+            'use strict';
 
-    const forms =
-        document.querySelectorAll('.needs-validation');
+            const forms =
+                document.querySelectorAll('.needs-validation');
 
-    Array.from(forms).forEach(form => {
+            Array.from(forms).forEach(form => {
 
-        form.addEventListener('submit', event => {
+                form.addEventListener('submit', event => {
 
-            if (!form.checkValidity()) {
+                    if (!form.checkValidity()) {
 
-                event.preventDefault();
+                        event.preventDefault();
 
-                event.stopPropagation();
+                        event.stopPropagation();
 
-            }
+                    }
 
-            form.classList.add('was-validated');
+                    form.classList.add('was-validated');
 
-        });
+                });
 
-    });
+            });
 
-})();
+        })();
 
-</script>
+    </script>

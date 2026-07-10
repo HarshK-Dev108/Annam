@@ -11,6 +11,9 @@ import sessions from "express-session";
 import passport from "passport";
 import passportLocal from "passport-local";
 import flash from "connect-flash";
+import VolunteerLogin from "./models/user/volunteer.js";
+import Admin from "./models/user/admin.js";
+import Product from "./models/product.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -118,7 +121,6 @@ app.use((req, res, next) => {
     res.locals.success = success;
     res.locals.error = error;
     res.locals.currUser = req.user;
-
     next();
 });
 
@@ -217,7 +219,7 @@ app.post("/login",
     async (req, res) => {
     const {username} = req.body;
     req.flash("success", `Welcome back ${username}!`);
-    return res.redirect("/");
+    return res.redirect(`/admin/${req.user._id}`);
     }
 );
 
@@ -239,9 +241,46 @@ app.get("/logout", (req, res, next) => {
 )}
 )
 
-app.get("/admin", (req, res) => {
-    res.render("./data/admin");
+app.get("/admin/:id", async (req, res) => {
+    let {id} = req.params;
+    const donations = await Donate.find();
+    console.log(donations);
+    const data = await AdminLogin.findById(id).populate("volunteers").populate({path: "meals_distributed", populate: {path: "donation"}});
+    if (!data) {
+        req.flash("error", "Listing does not exist");
+        return res.redirect("/listings");
+    }
+    console.log(data);
+    res.render("./data/admin", {data, donations});
 });
+
+app.get("/register/volunteer", (req, res) => {
+    res.render("./data/volunteerRegister");
+});
+
+app.post("/register/volunteer", async (req, res) => {
+    try {
+        let { username, password, location } = req.body;
+
+        const volunteer = new VolunteerLogin({
+            username,
+            location,
+        });
+
+        await VolunteerLogin.register(volunteer, password);
+
+        console.log("Volunteer Added");
+        req.flash("success", "Volunteer registered successfully!");
+        return res.redirect("/");
+    } catch (err) {
+        if (err.name === "UserExistsError") {
+            req.flash("error", "Volunteer already registered!");
+            return res.redirect("/register/admin");
+        }
+
+        return next(err);
+    }
+})
 
 
 app.all("/{*splat}", (req, res, next) => {
