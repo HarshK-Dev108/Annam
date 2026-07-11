@@ -124,19 +124,9 @@ app.use((req, res, next) => {
     next();
 });
 
-
-/* ================================
-   HOME PAGE
-================================ */
-
 app.get("/", (req, res) => {
     res.render("data/home");
 });
-
-
-/* ================================
-   DONATION ROUTES
-================================ */
 
 app.get("/donate", (req, res) => {
     res.render("data/donate");
@@ -154,7 +144,7 @@ app.post(
             await donateData.save();
 
             console.log("Donation Added");
-
+            req.flash("success", "Donation Added!");
             res.redirect("/");
 
         } catch (err) {
@@ -163,19 +153,9 @@ app.post(
     }
 );
 
-
-/* ================================
-   REGISTER ROLE SELECTION
-================================ */
-
 app.get("/register", (req, res) => {
     res.render("data/register");
 });
-
-
-/* ================================
-   ADMIN REGISTRATION
-================================ */
 
 app.get("/register/admin", (req, res) => {
     res.render("./data/adminRegister");
